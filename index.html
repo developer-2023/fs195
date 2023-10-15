@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coertion - automatic conversion of value type</title>
+</head>
+<body>
+    
+    <script>
+
+        // explicite conversions
+        let str = String(1000);
+        console.log(str, typeof str);
+
+        let num = parseInt("22");
+        console.log(num, typeof num);
+
+        let flt = parseFloat("6.3");
+        console.log(flt, typeof flt);
+
+        /*
+            implicit conversions
+            coertions
+            automatic conversions of value types
+        */
+
+        let data1 = "text" + 10;
+        console.log(data1, typeof data1); // text10 string
+
+        let data2 = 10 + "text";
+        console.log(data2, typeof data2); // 10text string
+
+        let data3 = 10 + "2";
+        console.log(data3, typeof data3); // 102 string
+
+        let data4 = 10 / "2";
+        console.log(data4, typeof data4); // 5 number
+
+        let data5 = 10 + + "2";
+        console.log(data5, typeof data5); // 12 number
+
+        let data6 = !!"false";
+        console.log(data6, typeof data6); // true boolean
+
+        let data7 = !!"0";
+        console.log(data7, typeof data7); // true boolean
+
+        let data8 = !![];
+        console.log(data8, typeof data8); // true boolean
+
+        let data9 = !!{};
+        console.log(data9, typeof data9); // true boolean
+
+        let data10 = {} == "[object Object]";
+        console.log(data10, typeof data10); // true boolean
+
+        /*
+            true + false
+            12 / "6"
+            "number" + 15 + 3
+            15 + 3 + "number"
+            [1] > null
+            "foo" + + "bar"
+            'true' == true
+            false == 'false'
+            null == ''
+            !!"false" == !!"true"
+            [‘x’] == ‘x’
+            [] + null + 1
+            [1,2,3] == [1,2,3]
+            {}+[]+{}+[1]
+            !+[]+[]+![]
+            new Date(0) - 0
+            new Date(0) + 0
+        */
+
+        console.log(true + false); // 1
+        console.log(12 / "6"); // 2
+        console.log("number" + 15 + 3); // number153
+        console.log(15 + 3 + "number"); // 18number
+        console.log([1] > null); // true
+        console.log("foo" + + "bar"); // fooNaN
+        console.log('true' == true); // false
+        console.log(false == 'false'); //false
+        console.log(null == ''); // false
+        console.log(!!"false" == !!"true"); // true
+        console.log([`x`] == `x`); // true (!) 
+        console.log([] + null + 1); // null1 (!)
+        console.log([1,2,3] == [1,2,3]);
+        console.log();
+        console.log();
+        console.log();
+        console.log();
+
+    </script>
+</body>
+</html>
